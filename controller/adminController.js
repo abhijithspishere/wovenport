@@ -612,7 +612,7 @@ const salesReport = async(req,res)=>{
   try {
       const productdata = await productModel.find().populate('category');
       console.log(productdata);
-      res.render('salesReport',{products:productdata})
+      res.render('salesreport',{products:productdata})
 
   } catch (error) {
       console.log(error.message);

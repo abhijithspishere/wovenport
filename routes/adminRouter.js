@@ -75,7 +75,7 @@ router.get('/deleteOffer',adminController.deleteOffer)
 router.get("/deleteBanner",adminController.deleteBanner)
 
 router.get('/stockReport',adminController.stockReport)
-router.get('/salesReport',adminController.salesReport)
+router.get('/salesreport',adminController.salesReport)
 router.get('/loadfullSales',adminController.loadfullSales)
 router.get('/download',adminController.adminDownload)
 router.get('/loadBanner',adminController.loadBanner)
