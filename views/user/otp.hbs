@@ -1,0 +1,83 @@
+<section style="height: 100vh;   background-color: #111927;
+  
+        radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);">
+    <section class="vh-100 gradient-custom" style="">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card  text-white" style="border-radius: 1rem;  backdrop-filter: blur(6px) saturate(117%);
+    -webkit-backdrop-filter: blur(6px) saturate(117%);
+    background-color: rgba(97, 181, 198, 0.868);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);">
+          <div class="card-body p-5 text-center">
+          <div class="mb-md-5 mt-md-4 pb-5" > 
+            <form action="/otp" method="post">
+            <h2 class="fw-bold mb-2 text-uppercase"></h2>
+              <p class="text-white-50 mb-5">{{message}}</p>
+                <div class="form-outline form-white mb-4">
+                <input type="text" name="otp" style="color: #e57979; background: transparent; border:solid #000000; " id="typeEmailX" class="form-control form-control-lg" required />
+                <label class="form-label" for="typeEmailX">Otp </label>
+              </div>
+              <input type="hidden" value={{newOtp}} name="newotp">
+              <input type="hidden" name="name" value={{userData.name}}>
+               <input type="hidden" name="email" value={{userData.email}}>
+                <input type="hidden" name="dob" value={{userData.dob}}>
+
+                 <input type="hidden" name="mobile" value={{userData.mobile}}>
+                 <input type="hidden" name="password" value={{userData.password}}>
+                  <input type="hidden" name="isAdmin" value={{userData.isAdmin}}>
+              <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+              <div> <h6 class="m-0 text-dark mt-3"><span id="timer">Time Left: 1:00</span>
+                                                <a href="/verifyotp" id="resend-link" class="d-none">Resend OTP</a></h6></div>
+                                              </div>
+                                        </div>
+            </div>
+            </form>
+
+            {{#if message}}
+  <p>{{message}}</p>
+{{/if}}
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+<script>
+    // Set the countdown duration in seconds
+    const countdownDuration = 60;
+    
+    // Get the timer element
+    const timerElement = document.getElementById('timer');
+    
+    // Start the countdown timer
+    let countdown = countdownDuration;
+    const intervalId = setInterval(() => {
+      countdown--;
+      const minutes = Math.floor(countdown / 60);
+      const seconds = countdown % 60;
+      timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+      if (countdown === 0) {
+        // Stop the countdown timer
+        clearInterval(intervalId);
+    
+        // Hide the timer element
+        timerElement.style.display = 'none';
+    
+        // Show the "Resend OTP" link
+        const resendLinkElement = document.getElementById('resend-link');
+        resendLinkElement.classList.remove('d-none');
+      }
+    }, 1000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  </body>
+</html>
